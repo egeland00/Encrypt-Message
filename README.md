@@ -1,51 +1,51 @@
-Message Encrypt-Decrypt Tool
+# Message Encrypt-Decrypt Tool 🔒
 
-A simple yet effective graphical user interface tool to encrypt and decrypt messages using the AES cipher in CBC mode. This tool provides additional security through key derivation and password complexity requirements, ensuring your messages remain confidential.
+A simple yet effective graphical user interface tool for encrypting and decrypting messages. Utilizes AES cipher in CBC mode to ensure top-notch security. Comes with key derivation, password complexity checks, and a user-friendly interface.
 
-Code/Encrypt-Message/gui.png
+![Message Encrypt-Decrypt Tool GUI](gui.png)
 
-    AES encryption in CBC mode.
-    Key derivation using PBKDF2HMAC with SHA256.
-    Password complexity checks.
-    User-friendly graphical interface.
-    Copy-to-clipboard functionality for easy sharing of encrypted messages.
+## 🌟 Features
+- **AES encryption** in CBC mode.
+- **Key derivation** using PBKDF2HMAC with SHA256.
+- **Password complexity checks** to ensure message confidentiality.
+- **User-friendly graphical interface**.
+- **Copy-to-clipboard** functionality for easily sharing encrypted messages.
 
-Installation & Usage
+## 💽 Installation & Usage
 
-    Clone the Repository
+1. **Clone the Repository**
 
-    bash
+    ```bash
+    git clone https://github.com/egeland00/Encrypt-Message.git
+    cd Encrypt-Message
+    ```
 
-git clone https://github.com/egeland00/Encrypt-Message.git
-cd Encrypt-Message
+2. **Install the Required Libraries**
 
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-Install the Required Libraries
+3. **Run the Application**
 
-bash
-
-pip install -r requirements.txt
-
-Run the Application
-
-bash
-
+    ```bash
     python gui.py
+    ```
 
-Password Requirements
+## 🛡️ Password Requirements
 
-To ensure the security of your encrypted messages, the tool requires passwords to meet the following criteria:
+To ensure the security of your encrypted messages, your password must adhere to the following criteria:
+- Minimum of **8 characters** in length.
+- Contains at least:
+  - **One lowercase letter**.
+  - **One uppercase letter**.
+  - **One digit**.
+  - **One special character**.
 
-    At least 8 characters long.
-    Contains at least:
-        One lowercase letter.
-        One uppercase letter.
-        One digit.
-        One special character.
+## 🤝 Contributing
 
-Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
 
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-License
+## 📜 License
 
-MIT
+This project is licensed under the MIT License.
