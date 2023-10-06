@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
+import ttkbootstrap as ttkbs
+from ttkbootstrap.constants import *
 import tkinter.simpledialog as simpledialog
 from encryption_logic import encrypt_message, decrypt_message, password_complexity_check
 
@@ -37,26 +39,37 @@ def on_decrypt_button_click():
     except Exception as e:
         messagebox.showerror("Error", str(e))
 
-window = tk.Tk()
+
+window = ttkbs.Window(themename="superhero")
+window.geometry("400x300")
 window.title("Message Encrypt-Decrypt Tool")
 
-message_label = tk.Label(window, text="Message:")
-message_label.pack()
-message_text = tk.Text(window, height=50, width=100)
-message_text.pack()
+message_label = ttkbs.Label(window, text="Message:", bootstyle="warning")
+message_label.pack(fill=tk.X)  # Fill the available horizontal space
 
-private_key_label = tk.Label(window, text="Private Key:")
-private_key_label.pack()
-private_key_entry = tk.Entry(window, show="*", width=30)
-private_key_entry.pack()
+text_frame = tk.Frame(window)
+text_frame.pack(fill=tk.BOTH, expand=True)  # Fill and expand in both directions
 
-button_frame = tk.Frame(window)
+message_text = ttkbs.Text(text_frame, height=10, width=40)  # Adjusted dimensions
+message_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+scrollbar = ttkbs.Scrollbar(text_frame, command=message_text.yview, bootstyle="dark-round")
+scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+message_text.config(yscrollcommand=scrollbar.set)
+
+private_key_label = ttkbs.Label(window, text="Private Key:", bootstyle="dwarning")
+private_key_label.pack(fill=tk.X,  anchor=tk.CENTER)  # Fill the available horizontal space
+
+private_key_entry = ttkbs.Entry(window, show="*", width=30)
+private_key_entry.pack(fill=tk.X, padx=20)  # Fill the available horizontal space, with padding
+
+button_frame = ttkbs.Frame(window)
 button_frame.pack()
 
-encrypt_button = tk.Button(button_frame, text="Encrypt", command=on_encrypt_button_click, bg="green", fg="white", height=3, width=10)
-encrypt_button.grid(row=0, column=0)
+encrypt_button = ttkbs.Button(button_frame, text="Encrypt", command=on_encrypt_button_click, bootstyle="success")
+encrypt_button.grid(row=0, column=0, padx=5, pady=5)  # Added padding
 
-decrypt_button = tk.Button(button_frame, text="Decrypt", command=on_decrypt_button_click, bg="red", fg="white", height=3, width=10)
-decrypt_button.grid(row=0, column=1)
+decrypt_button = ttkbs.Button(button_frame, text="Decrypt", command=on_decrypt_button_click, bootstyle="danger")
+decrypt_button.grid(row=0, column=1, padx=5, pady=5)  # Added padding
 
 window.mainloop()
