@@ -39,9 +39,8 @@ def on_decrypt_button_click():
     except Exception as e:
         messagebox.showerror("Error", str(e))
 
-
 window = ttkbs.Window(themename="superhero")
-window.geometry("400x300")
+window.geometry("400x350")
 window.title("Message Encrypt-Decrypt Tool")
 
 message_label = ttkbs.Label(window, text="Message:", bootstyle="warning")
@@ -57,8 +56,8 @@ scrollbar = ttkbs.Scrollbar(text_frame, command=message_text.yview, bootstyle="d
 scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 message_text.config(yscrollcommand=scrollbar.set)
 
-private_key_label = ttkbs.Label(window, text="Private Key:", bootstyle="dwarning")
-private_key_label.pack(fill=tk.X,  anchor=tk.CENTER)  # Fill the available horizontal space
+private_key_label = ttkbs.Label(window, text="Private Key:", bootstyle="warning")
+private_key_label.pack(fill=tk.X, anchor=tk.CENTER)  # Fill the available horizontal space
 
 private_key_entry = ttkbs.Entry(window, show="*", width=30)
 private_key_entry.pack(fill=tk.X, padx=20)  # Fill the available horizontal space, with padding
